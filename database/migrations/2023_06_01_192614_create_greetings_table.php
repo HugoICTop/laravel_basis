@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('greetings', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->date('datum1');
             $table->string('body');
+            $table->string('naam')->nullable();
+            $table->string('email')->nullable();
+            $table->string('telefoon')->nullable();
             $table->timestamps();
         });
     }

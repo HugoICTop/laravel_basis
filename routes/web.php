@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\GreetingController;
+use App\Http\Controllers\DemoController;
 use Illuminate\Support\Facades\Route;
-use App\Greeting;
+use App\Models\Greeting;
+use App\Models\User;
+use App\Models\demonstration;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,20 +16,43 @@ use App\Greeting;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('vullen', [GreetingController::class, 'prepare']);
 
-Route::get('create-greeting', function () {
- $greeting = new Greeting;
- $greeting->body = 'Hello, World!';
- $greeting->save();
-});
 Route::get('first-greeting', function () {
  return Greeting::first()->body;
 });
 
+Route::get('/form', function () {
+    return view('contactform');
+   });
+
+Route::post('/contact', [DemoController::class, 'contact'])->name('demo.contact');
+
+Route::get('/overzicht', [GreetingController::class, 'show']);
+
+Route::get('/plan', [GreetingController::class, 'keuze']);
+
+Route::get('/edit', [DemoController::class, 'edit']);
+
+Route::resource('greetings', GreetingController::class);
+Route::resource('demo', DemoController::class);
 
 Route::get('/', function () {
- return view('welcome');
-});
+    $greet = Greeting::first()->created_at;
+   // return redirect('https://site.ictop.nl/');
+   
+    echo $greet->weekday();
+    echo '  = dagnummer aanmaak / datum:  ';
+    echo $greet ->format('d-m-Y');
+    
+ 
+   });
+
+/*   Route::get('/', function () {
+    return redirect('https://site.ictop.nl/');
+   });
+*/
+
 Route::get('welcome', function () {
     return view('welcome');
    });
@@ -38,3 +65,6 @@ Route::get('afspraak', function () {
 Route::get('demo', function () {
  return view('demo');
 });
+Route::get('eenvoudigesite', function () {
+    return view('eenvoudigesite');
+   });
