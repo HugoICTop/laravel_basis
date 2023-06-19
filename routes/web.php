@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Greeting;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('create-greeting', function () {
+ $greeting = new Greeting;
+ $greeting->body = 'Hello, World!';
+ $greeting->save();
+});
+Route::get('first-greeting', function () {
+ return Greeting::first()->body;
+});
+
 
 Route::get('/', function () {
  return view('welcome');
@@ -23,9 +32,9 @@ Route::get('welcome', function () {
 Route::get('about', function () {
  return view('about');
 });
-Route::get('products', function () {
- return view('products');
+Route::get('afspraak', function () {
+ return view('afspraak');
 });
-Route::get('services', function () {
- return view('services');
+Route::get('demo', function () {
+ return view('demo');
 });
