@@ -52,7 +52,8 @@ class DemoController extends Controller
          Greeting::create([
              'datum1' => now(),
              //'demonstration_id' => '', 
-             'demonstration' => 'contact aanvraag',
+             //'demonstration' => 'contact aanvraag',
+             'demonstration' => $request->input('ref'),
              'naam' => $request->input('naam'),
              'email' => $request->input('email'),
              'telefoon' => $request->input('telefoon'),

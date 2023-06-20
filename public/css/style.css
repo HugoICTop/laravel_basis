@@ -74,7 +74,6 @@ section {
     display: flex;
     flex-direction: column;
     height: 100vh;
-
     padding: 100px;
     margin-top: 40px;
 }
@@ -94,17 +93,60 @@ section.home {
 }
 
 form {
-    background: #fff;
     display: flex;
     flex-direction: column;
+    margin: auto;
     padding: 2vw 4vw;
     width: 90%;
-    max-width: 600px;
-    border-radius: 10px;
-}
-/* BUTTON */
+    max-width: 800px;
+        border-radius: 10px;
+    }
+    
+    form h4 {
+        color: #682B62;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+    
+    h5 {
+        font-size: 1rem;
+        color: #2a1328;
+        font-weight: 400;
+        margin: auto;
+        width: 90%;
+        max-width: 1000px;
+    }
+    
+    form input,
+    form textarea {
+        border: 0;
+        margin: 5px 0;
+        padding: 15px 20px 15px 20px;
+        outline: none;
+        background: #dda0f1;
+        color: #682B62;
+        font-size: 16px;
+        border: 10px;
+        border-radius: 10px;
+    }
+    
+    Form button:hover {
+        background: #5a2652;
+    }
+    
+    Form button {
+        cursor: pointer;
+        display: inline-block;
+        background: var(--secondary-color);
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 30px;
+        margin: 20px 0;
+        border: 10px;
+        border-radius: 10px;
+    }
+    
 .btn {
-
     cursor: pointer;
     display: inline-block;
     background: var(--secondary-color);
@@ -136,7 +178,6 @@ form {
 .btn-paginate:hover {
     transition: .2s all;
     transform: scale(1.05);
-
 }
 
 .pag {
