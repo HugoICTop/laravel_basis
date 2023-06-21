@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\demonstration;
+use App\Models\Demonstration;
 use App\Models\Greeting;
 use Illuminate\Http\Request;
 
@@ -52,8 +52,8 @@ class DemoController extends Controller
          Greeting::create([
              'datum1' => now(),
              //'demonstration_id' => '', 
-             //'demonstration' => 'contact aanvraag',
-             'demonstration' => $request->input('ref'),
+             'demonstration' => 'contactformulier',
+             //'demonstration' => $request->input('ref'),
              'naam' => $request->input('naam'),
              'email' => $request->input('email'),
              'telefoon' => $request->input('telefoon'),
@@ -67,27 +67,43 @@ class DemoController extends Controller
 
 
 
-    public function edit(demonstration $demo)
+    public function edit(Demonstration $demo)
     {
-        demonstration::find($demo->id)
+        Demonstration::find($demo->id)
             ->update([
                 'afspraak'=>'geboekt!'
             ]); 
             
-        
-        Greeting::create([
+        $greeting = Greeting::create([
+            
             'datum1' => now(),
             'demonstration_id' => $demo->id,
             'demonstration' => $demo->tijd,
             'bezoekdatum' => $demo->datum,
             'body' => $demo->monteur,
             ]);
+                        
+            //echo
+             
+           // $demo->id,
+           // $demo->naam;
 
-            echo $demo;
+            // dus je krijgt / hieronder wordt de goede regel in de greeting gepakt (en dat is de juiste want de regel in demonstrations
+            // kan ook nog door iemand anders woprden gebruikt en hoeft dus niet de unieke en gebruikersafhankelijke info te bevatten zoals dat nij greetings wel het geval is)
+            //$greeting = Greeting::find($demo->demonstration_id);
+            //$greeting = Greeting::find(94);
+            return view('sms', [ 'greeting' => $greeting ]);
+            
+            // hieronder wordt de regel in demonstartions gepakt maar dat is dus niet de goede (zie uitleg hierboven!)
+            //    $greeting = Demonstration::find($demo->id);
+          //  return view('sms', [ 'greeting' => $greeting ]);
+            
+            
        //return redirect()->route('categories.index');
         //return view('categories.vastleggen', compact('category'));
     }
 
+   
 
     /**
      * Update the specified resource in storage.

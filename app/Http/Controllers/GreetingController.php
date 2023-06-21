@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 //use App\Filament\Resources\GreetingResource;
 
 //use App\Filament\Resources\DemonstrationResource;
-use App\Models\demonstration;
+use App\Models\Demonstration;
 use App\Models\Greeting;
 use Illuminate\Http\Request;
 
@@ -13,8 +13,9 @@ class GreetingController extends Controller
 
     public function keuze()
     {
-        //$demonstration = demonstration::get();
-        $demonstration = demonstration::all();
+        //$demonstration = Demonstration::get();
+        $demonstration = Demonstration::all();
+        
         //->paginate(3);
         return view('plannen', compact('demonstration')); 
     }
@@ -29,7 +30,7 @@ class GreetingController extends Controller
         $datum3 = $datum->add("P0D")->format('Y-m-d H:i:s');
         $datum4 = $datum->add("P1D")->format('Y-m-d H:i:s');
 
-        $greeting = new demonstration;
+        $greeting = new Demonstration;
         $greeting->datum=$datum1;
         $greeting->afspraak = 'Afspraak 1';
         $greeting->tijd = '13:30 uur';
@@ -37,7 +38,7 @@ class GreetingController extends Controller
         $greeting->naam = "Rolf";
         $greeting->save();
 
-        $greeting = new demonstration;
+        $greeting = new Demonstration;
         $greeting->datum=$datum2;
         $greeting->afspraak = 'Afspraak 2';
         $greeting->tijd = '8:00 uur';
@@ -45,7 +46,7 @@ class GreetingController extends Controller
         $greeting->naam = "Chris";
         $greeting->save();
 
-        $greeting = new demonstration;
+        $greeting = new Demonstration;
         $greeting->datum=$datum3;
         $greeting->afspraak = 'Afspraak 3';
         $greeting->tijd = '14:00 uur';
@@ -53,7 +54,7 @@ class GreetingController extends Controller
         $greeting->naam = "Chris";
         $greeting->save();
 
-        $greeting = new demonstration;
+        $greeting = new Demonstration;
         $greeting->datum=$datum4;
         $greeting->afspraak = 'Afspraak 4';
         $greeting->tijd = '10:30 uur';
@@ -68,17 +69,18 @@ class GreetingController extends Controller
     }
 
 
-    public function show(demonstration $demonstration)
+    public function show(Demonstration $demonstration)
     {
        
-        $demonstration = demonstration::all();
+        $demonstration = Demonstration::all();
         //->paginate(3);
+       
         return view('overzicht', compact('demonstration'));
       
     }
 
     /*
-    public function edit(demonstration $demo)
+    public function edit(Demonstration $demo)
     {
         //DB::table('categories')->where('id','$category')->update(['status'=>'3']);
         //DB::Category->where('id','$category')->update(['status'=>'3']);
@@ -90,7 +92,7 @@ class GreetingController extends Controller
         //Het veld status wijzigen lukte lang niet; probleem was dat de variabele niet op fillable stond ;)
         //Dus toegevoegd in models.category: protected $fillable = ['name','status'];
        
-        demonstration::find($demo->id)
+        Demonstration::find($demo->id)
 
             ->update(['status'=>'2']);       
         

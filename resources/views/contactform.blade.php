@@ -50,7 +50,7 @@
     </div>
     <h5>   
         Heeft u een korte vraag of opmerking stuur dan even een berichtje. 
-        Wilt u wat uitgebreider kijken naar
+        Wilt u liever wat uitgebreider kijken naar
         alle mogelijkheden? Dan kom ik graag (en geheel vrijblijvend) bij u langs 
         voor een verhelderend gesprek. <a class="linkgroen" href="afspraak.html">Plan hier meteen een afspraak in</a>; ik sta graag voor u klaar! </p>
     </h5>

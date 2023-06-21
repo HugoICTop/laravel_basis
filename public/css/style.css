@@ -42,7 +42,13 @@ body {
     font-family: 'Poppins', sans-serif;
     color: #111;
 }
-
+.sms {
+    background: #00c100;
+    margin-left: 1em;
+    margin-top: 1em;
+    font-size: 25px;
+    font-weight: 400;
+}
 h1 {
     font-size: 30px;
     font-weight: 500;

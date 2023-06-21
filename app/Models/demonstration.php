@@ -5,13 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
 
 class Demonstration extends Model
 {
+
     use HasFactory;
-    public function greeting(): BelongsTo
+    public function greeting(): HasMany
     {
-        return $this->belongsTo(demonstration::class);
+        return $this->hasMany(Greeting::class);
 
     }
 

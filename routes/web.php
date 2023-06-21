@@ -5,7 +5,7 @@ use App\Http\Controllers\DemoController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Greeting;
 use App\Models\User;
-use App\Models\demonstration;
+use App\Models\Demonstration;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +27,8 @@ Route::get('/form', function () {
    });
 
 Route::post('/contact', [DemoController::class, 'contact'])->name('demo.contact');
+
+//Route::get('/user/{id}', [UserController::class, 'show']); 
 
 Route::get('/overzicht', [GreetingController::class, 'show']);
 
