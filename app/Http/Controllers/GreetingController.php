@@ -14,13 +14,20 @@ class GreetingController extends Controller
     public function keuze()
     {
         //$demonstration = Demonstration::get();
-        $demonstration = Demonstration::all();
+        $demonstration = Demonstration::all()->where('type','=','5');
         
         //->paginate(3);
         return view('plannen', compact('demonstration')); 
     }
 
-     
+    public function keuze2()
+    {
+        //$demonstration = Demonstration::get();
+        $demonstration = Demonstration::all()->where('type','=','3');
+        
+        //->paginate(3);
+        return view('afspraak', compact('demonstration')); 
+    } 
 
     public function prepare()
     {
@@ -33,6 +40,7 @@ class GreetingController extends Controller
         $greeting = new Demonstration;
         $greeting->datum=$datum1;
         $greeting->afspraak = 'Afspraak 1';
+        $greeting->type = '5';
         $greeting->tijd = '13:30 uur';
         $greeting->monteur = "Rolf van Vleuten";
         $greeting->naam = "Rolf";
@@ -41,6 +49,7 @@ class GreetingController extends Controller
         $greeting = new Demonstration;
         $greeting->datum=$datum2;
         $greeting->afspraak = 'Afspraak 2';
+        $greeting->type = '5';
         $greeting->tijd = '8:00 uur';
         $greeting->monteur = "Chris Goedhart";
         $greeting->naam = "Chris";
@@ -49,6 +58,7 @@ class GreetingController extends Controller
         $greeting = new Demonstration;
         $greeting->datum=$datum3;
         $greeting->afspraak = 'Afspraak 3';
+        $greeting->type = '5';
         $greeting->tijd = '14:00 uur';
         $greeting->monteur = "Chris Goedhart";
         $greeting->naam = "Chris";
@@ -57,6 +67,7 @@ class GreetingController extends Controller
         $greeting = new Demonstration;
         $greeting->datum=$datum4;
         $greeting->afspraak = 'Afspraak 4';
+        $greeting->type = '5';
         $greeting->tijd = '10:30 uur';
         $greeting->monteur = "Bart Flink";
         $greeting->naam = "Bart";
@@ -79,7 +90,9 @@ class GreetingController extends Controller
       
     }
 
-    /*
+          
+   //De procedure hieronder wordt niet meer gebruikt/ 12 juli gecheckt
+   
     public function edit(Demonstration $demo)
     {
         //DB::table('categories')->where('id','$category')->update(['status'=>'3']);
@@ -98,6 +111,6 @@ class GreetingController extends Controller
         
         return view('categories.vastleggen', compact('category'));
     }
-*/
+
  
 }

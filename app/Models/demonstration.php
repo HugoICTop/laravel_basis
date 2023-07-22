@@ -19,5 +19,5 @@ class Demonstration extends Model
 
     }
 
-    protected $fillable = ['afspraak'];
+    protected $fillable = ['afspraak','type'];
 }

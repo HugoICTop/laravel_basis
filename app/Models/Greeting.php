@@ -16,5 +16,6 @@ class Greeting extends Model
 
  //protected $fillable = ['datum1','naam', 'email','telefoon'];
  
- protected $fillable = ['naam', 'email','telefoon','demonstration_id','demonstration','bezoekdatum','body','datum1'];
+ protected $fillable = ['naam', 'email','telefoon','demonstration_id','demonstration',
+ 'bezoekdatum','body','datum1','voornaam','klacht', 'machine', 'bedrijf'];
 }

@@ -52,8 +52,13 @@ Route::resource('afspraak', DemoController::class);
 Route::get('/afspraak', [GreetingController::class, 'keuze2']);
 
 Route::get('/', function () {
- //   $greet = Greeting::first()->created_at;
- //  return redirect('https://site.ictop.nl/');
+    $greet = Greeting::first()->created_at;
+   // return redirect('https://site.ictop.nl/');
+   
+    echo $greet->weekday();
+    echo '  = dagnummer aanmaak / datum:  ';
+    echo $greet ->format('d-m-Y');
+    
  
    });
 
@@ -62,11 +67,17 @@ Route::get('/', function () {
    });
 */
 //Onderstaande route push later VERWIJDEREN na het ontwikkelen maar VOOR DEPLOYEN!!!
+Route::get('push', function () {
+    return view('storing');
+   });
 
-/*Route::get('about', function () {
+Route::get('welcome', function () {
+    return view('welcome')->name('welcome');
+   });
+Route::get('about', function () {
  return view('about');
 });
-
+/*
 Route::get('afspraak', function () {
  return view('afspraak');
 });
@@ -74,4 +85,6 @@ Route::get('afspraak', function () {
 //Route::get('demo', function () {
 // return view('demo');
 //});
-
+Route::get('eenvoudigesite', function () {
+    return view('eenvoudigesite');
+   });

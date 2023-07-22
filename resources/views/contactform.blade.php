@@ -1,21 +1,27 @@
 <link rel="stylesheet" href="css/style.css" />
 
 <body>
-    <div class="title">
+    
         <h2>
             Contactformulier
         </h2>
-                     
-        
-    </div>
+        <h5>   
+            Heeft u een korte vraag of opmerking stuur dan even een berichtje via dit formulier. <br>
+             
+        Wilt u liever wat uitgebreider kijken naar
+            alle mogelijkheden? Ik kom graag even bij u langs 
+            voor een verhelderend gesprek.      
+            Een afspraak inplannen doet u <a class="linkgroen" href="https://www.ictop.nl/afspraak">zonder te bellen
+                rechtstreeks in mijn agenda</a> op het moment dat u het beste uitkomt.
+        </h5>
+       
+    
 
     
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+    
                     <form method="POST" action="{{ route('demo.contact') }}">
                         @csrf
+                        
                         <h3>Naam:</h3> 
                        
                         <input type="text" name="naam" required >
@@ -40,18 +46,13 @@
                              -->
 
                           <h4>  >  </h4>
-                        <textarea name="message" placeholder="Uw bericht"></textarea>
-                        <br /><br />
+                        <textarea name="message" placeholder="Uw bericht" required></textarea>
+                        <br />
                         <button type="submit" >Verzenden...</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <h5>   
-        Heeft u een korte vraag of opmerking stuur dan even een berichtje. 
-        Wilt u liever wat uitgebreider kijken naar
-        alle mogelijkheden? Dan kom ik graag (en geheel vrijblijvend) bij u langs 
-        voor een verhelderend gesprek. <a class="linkgroen" href="afspraak.html">Plan hier meteen een afspraak in</a>; ik sta graag voor u klaar! </p>
-    </h5>
+    
 </body>
